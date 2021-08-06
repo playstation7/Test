@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fish : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private float movespeed = 15f;
+    private float movespeed = 10f;
     public Vector2 movment;
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,6 @@ public class Fish : MonoBehaviour
         }
         if (collision.gameObject.tag == "Hook")
         {
-
             collision.gameObject.GetComponent<Hook>().catchFish(gameObject);
         }
 
