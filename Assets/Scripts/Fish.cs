@@ -6,6 +6,7 @@ public class Fish : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float movespeed = 10f;
+
     public Vector2 movment;
     // Start is called before the first frame update
     void Start()
@@ -28,11 +29,19 @@ public class Fish : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "Hook")
+        if (collision.gameObject.tag == "Hook" && gameObject.tag != "Shark")
         {
             collision.gameObject.GetComponent<Hook>().catchFish(gameObject);
         }
-
-
+        if (collision.gameObject.tag == "Hook" && gameObject.tag == "Shark" && collision.gameObject.GetComponent<Hook>().catchfishing == true)
+        {
+            collision.gameObject.GetComponent<Hook>().catchfishing = false;
+            collision.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        if (collision.gameObject.tag == "Fish" && gameObject.tag == "Shark")
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
     }
 }

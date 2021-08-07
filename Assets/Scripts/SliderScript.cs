@@ -25,6 +25,7 @@ public class SliderScript : MonoBehaviour
         slider.value -= 0.3f;
         if (slider.value == 0) 
         {
+            slider.value = 100;
             menuPanel.SetActive(true);
             gameOver = true;
         }

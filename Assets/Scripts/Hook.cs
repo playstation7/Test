@@ -6,7 +6,7 @@ public class Hook : MonoBehaviour
 {
 
     private int offset = 0;
-    private bool catchfishing;
+    public bool catchfishing;
 
     public GameObject fishOnHook;
     public GameObject progressBar;
@@ -27,7 +27,7 @@ public class Hook : MonoBehaviour
             Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
 
-            if (worldPosition.y + offset < 8.3f && worldPosition.y > 0.5 && !progressBar.GetComponent<SliderScript>().gameOver)
+        if (worldPosition.y + offset < 8.3f && worldPosition.y > 0.5 && !progressBar.GetComponent<SliderScript>().gameOver)
             {
                 transform.position = new Vector3(transform.position.x, worldPosition.y + offset, 1);
                 if (worldPosition.y > 8f + offset && catchfishing)
