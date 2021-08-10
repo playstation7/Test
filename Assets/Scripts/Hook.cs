@@ -10,7 +10,8 @@ public class Hook : MonoBehaviour
 
     public GameObject fishOnHook;
     public GameObject progressBar;
-    
+    public int catchedFishCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +28,12 @@ public class Hook : MonoBehaviour
             Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
 
-        if (worldPosition.y + offset < 8.3f && worldPosition.y > 0.5 && !progressBar.GetComponent<SliderScript>().gameOver)
+        if (worldPosition.y + offset < 8.3f && worldPosition.y > 0.5)
             {
                 transform.position = new Vector3(transform.position.x, worldPosition.y + offset, 1);
                 if (worldPosition.y > 8f + offset && catchfishing)
                 {
+                    catchedFishCount++;
                     catchfishing = false;
                     fishOnHook.SetActive(false);
                     SliderScript script = progressBar.GetComponent<SliderScript>();
@@ -39,7 +41,7 @@ public class Hook : MonoBehaviour
                 }
             }
         }
-        else if (Input.touchCount > 0 && !progressBar.GetComponent<SliderScript>().gameOver)
+        else if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
             Vector3 toucPosition = Camera.main.ScreenToWorldPoint(touch.position);

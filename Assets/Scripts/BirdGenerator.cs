@@ -5,7 +5,7 @@ using UnityEngine;
 public class BirdGenerator : MonoBehaviour
 {
     public GameObject birdPrefab;
-
+    public GameObject attentionMark;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,10 @@ public class BirdGenerator : MonoBehaviour
 
     private IEnumerator createBird()
     {
-        yield return new WaitForSeconds(Random.Range(0.5f, 13f));
+        yield return new WaitForSeconds(Random.Range(5f, 13f));
+        attentionMark.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        attentionMark.SetActive(false);
         GameObject bird = Instantiate(birdPrefab);
 
         float y = 3.562f;

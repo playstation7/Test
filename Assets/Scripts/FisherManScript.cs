@@ -26,9 +26,11 @@ public class FisherManScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bird")
         {
-            progressBar.GetComponent<SliderScript>().slider.value = 100;
+            //progressBar.GetComponent<SliderScript>().slider.value = 100;
             menuPanel.SetActive(true);
             progressBar.GetComponent<SliderScript>().gameOver = true;
+            Time.timeScale = 0;
+
         }
     }
 
