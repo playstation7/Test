@@ -26,7 +26,7 @@ public class BirdGenerator : MonoBehaviour
         attentionMark.SetActive(false);
         GameObject bird = Instantiate(birdPrefab);
 
-        float y = 3.562f;
+        float y = 4f;
         float x;
 
         x = 5;

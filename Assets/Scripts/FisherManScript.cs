@@ -42,6 +42,6 @@ public class FisherManScript : MonoBehaviour
 
     public void jumpBack()
     {
-        rb.GetComponent<Transform>().position = new Vector2(-0.424f, 3.589f);
+        rb.GetComponent<Transform>().position = new Vector2(-0.424f, 4f);
     }
 }

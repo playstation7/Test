@@ -60,7 +60,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movment: {x: 0, y: 0}
-  effect: {fileID: 0}
 --- !u!1001 &529586791937767428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,6 +69,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 696369151596315350, guid: 2fe38852f9ef1734d84ad4c61be7213e, type: 3}
       propertyPath: m_Name
+      value: Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 696369151596315350, guid: 2fe38852f9ef1734d84ad4c61be7213e, type: 3}
+      propertyPath: m_TagString
       value: Fish
       objectReference: {fileID: 0}
     - target: {fileID: 2000898678068048576, guid: 2fe38852f9ef1734d84ad4c61be7213e, type: 3}

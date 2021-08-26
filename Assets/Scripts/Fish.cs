@@ -29,19 +29,14 @@ public class Fish : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "Hook" && gameObject.tag != "Shark")
+        if (collision.gameObject.tag == "Hook" && gameObject.tag == "Fish")
         {
             collision.gameObject.GetComponent<Hook>().catchFish(gameObject);
         }
         if (collision.gameObject.tag == "Hook" && gameObject.tag == "Shark" && collision.gameObject.GetComponent<Hook>().catchfishing == true)
         {
             collision.gameObject.GetComponent<Hook>().catchfishing = false;
-            collision.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        }
-        if (collision.gameObject.tag == "Fish" && gameObject.tag == "Shark")
-        {
-            Destroy(gameObject);
-            Destroy(collision.gameObject);
+            collision.gameObject.transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 }

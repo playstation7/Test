@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
-
-    private int offset = 0;
     public bool catchfishing;
-
     public GameObject fishOnHook;
     public GameObject progressBar;
     public int catchedFishCount = 0;
@@ -28,10 +25,10 @@ public class Hook : MonoBehaviour
             Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
 
 
-        if (worldPosition.y + offset < 8.3f && worldPosition.y > 0.5)
+        if (worldPosition.y < 4f && worldPosition.y > -4)
             {
-                transform.position = new Vector3(transform.position.x, worldPosition.y + offset, 1);
-                if (worldPosition.y > 8f + offset && catchfishing)
+                transform.position = new Vector3(transform.position.x, worldPosition.y, 1);
+                if (worldPosition.y > 3.5f && catchfishing)
                 {
                     catchedFishCount++;
                     catchfishing = false;
@@ -45,10 +42,10 @@ public class Hook : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
             Vector3 toucPosition = Camera.main.ScreenToWorldPoint(touch.position);
-            if (toucPosition.y + offset < 8.3f && toucPosition.y > 0.5)
+            if (toucPosition.y < 4f && toucPosition.y > -4)
             {
-                transform.position = new Vector3(transform.position.x, toucPosition.y + offset, 1);
-                if (toucPosition.y > 8f + offset && catchfishing)
+                transform.position = new Vector3(transform.position.x, toucPosition.y, 1);
+                if (toucPosition.y > 3.5f && catchfishing)
                 {
                     catchfishing = false;
                     fishOnHook.SetActive(false);
